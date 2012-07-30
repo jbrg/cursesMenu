@@ -16,6 +16,11 @@ class cursesMenu:
         self.items = []
         self.numberOfItems = 0
         self.currentItem = -1
+    def destroyMenu(self):
+        curses.echo()
+        curses.curs_set(0)
+        menu.stdscr.keypad(0)
+        curses.endwin()
     def addItem(self, item):
         self.mWin.addstr(self.numberOfItems,0, item)
         self.items.append(item)
