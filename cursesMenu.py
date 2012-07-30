@@ -1,6 +1,6 @@
 import curses
 
-class cursesMenu:
+class cursesMainMenu:
     def __init__(self, topic):
         ## Screen setup ##
         self.stdscr = curses.initscr()
