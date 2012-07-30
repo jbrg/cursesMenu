@@ -1,6 +1,6 @@
 import curses
 
-class cursesMainMenu:
+class MainMenu:
     def __init__(self, topic):
         ## Screen setup ##
         self.stdscr = curses.initscr()
@@ -16,10 +16,12 @@ class cursesMainMenu:
         self.items = []
         self.numberOfItems = 0
         self.currentItem = -1
-    def destroyMenu(self):
+    def getch(self):
+        return self.stdscr.getch()
+    def destroy(self):
         curses.echo()
         curses.curs_set(0)
-        menu.stdscr.keypad(0)
+        self.stdscr.keypad(0)
         curses.endwin()
     def addItem(self, item):
         self.mWin.addstr(self.numberOfItems,0, item)
