@@ -54,5 +54,5 @@ class MainMenu:
         """ Returns a string with the requested item or the current item if no id is given
         item should be a integer between 0 and self.numberOfItems """
         if item == "current":
-            item = self.currentItem()
+            item = self.currentItem
         return self.items[item]
