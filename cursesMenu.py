@@ -1,3 +1,5 @@
+import curses
+
 class cursesMenu:
     def __init__(self, topic):
         ## Screen setup ##
@@ -22,11 +24,13 @@ class cursesMenu:
     def selectItem(self, direction):
         if direction == "up" and self.currentItem < (self.numberOfItems-1):
             if self.currentItem > -1:
-                self.mWin.addstr(self.currentItem, 0, self.items[(self.currentItem)])
+                self.mWin.addstr(self.currentItem, 0, self.items[self.currentItem])
             self.currentItem += 1
-            self.mWin.addstr(self.currentItem, 0, self.items[(self.currentItem)], curses.A_REVERSE)
+            self.mWin.addstr(self.currentItem, 0, self.items[self.currentItem], curses.A_REVERSE)
         elif direction == "down" and self.currentItem > 0:
-            self.mWin.addstr(self.currentItem, 0, self.items[(self.currentItem)])
+            self.mWin.addstr(self.currentItem, 0, self.items[self.currentItem])
             self.currentItem -= 1
-            self.mWin.addstr(self.currentItem, 0, self.items[(self.currentItem)], curses.A_REVERSE)
+            self.mWin.addstr(self.currentItem, 0, self.items[self.currentItem], curses.A_REVERSE)
         self.mWin.refresh()
+    def getCurrentItem(self):
+        return self.currentItem
