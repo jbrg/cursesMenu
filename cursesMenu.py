@@ -37,5 +37,9 @@ class cursesMenu:
             self.currentItem -= 1
             self.mWin.addstr(self.currentItem, 0, self.items[self.currentItem], curses.A_REVERSE)
         self.mWin.refresh()
-    def getCurrentItem(self):
+    def getCurrentItemId(self):
         return self.currentItem
+    def getItem(self, item="current"):
+        if item == "current":
+            item = self.currentItem()
+        return self.items[item]
